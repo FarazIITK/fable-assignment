@@ -8,7 +8,23 @@ interface IProp {
 }
 
 const ArrayInput = (props: IProp) => {
-  return null;
+  const [inputString, setInputString] =
+    useState<string>('');
+
+  const handleSubmit = () => {
+    setInputString('');
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={inputString}
+        onChange={(e) => setInputString(e.target.value)}
+      />
+      <button onClick={handleSubmit}>Submit</button>
+    </div>
+  );
 };
 
 export default ArrayInput;
