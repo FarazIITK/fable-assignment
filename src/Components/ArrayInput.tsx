@@ -12,6 +12,15 @@ const ArrayInput = (props: IProp) => {
     useState<string>('');
 
   const handleSubmit = () => {
+    console.log('input: ', inputString);
+
+    const numbers: number[] = inputString
+      .split(', ')
+      .map((num) => Number(num));
+
+    console.log('Numbers: ', numbers);
+    props.setInputArray(numbers);
+
     setInputString('');
   };
 
